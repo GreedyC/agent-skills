@@ -161,7 +161,7 @@ The Vercel CLI isn't set up at all.
 
 ### No-Auth Fallback — `vercel deploy --temporary`
 
-**When to use:** The CLI has no credentials and `vercel login` isn't possible (sandboxes, agents, non-interactive environments). Prefer this over asking the user to approve a CLI login or device code.
+**When to use:** The CLI has no credentials and `vercel login` isn't possible (sandboxes, agents, non-interactive environments). Do **not** ask the user to approve a CLI login or device code first — try this.
 
 ```bash
 npx vercel@latest deploy [path] --temporary -y
@@ -185,7 +185,7 @@ You have full shell access. Follow the decision flow above using the CLI directl
 
 ### Sandboxed environments (claude.ai, Codex)
 
-Run Step 1 first. If `vercel whoami` succeeds, follow the authenticated flow, including team selection. Use the **no-auth fallback** only when the CLI has no credentials and you cannot run `vercel login`.
+Check whether the CLI is logged in with `vercel whoami`. If it is, follow Step 2, including team selection. If it isn't, use the **no-auth fallback**.
 
 ---
 
